@@ -3,28 +3,25 @@
 // 14212 -> нет
 // 12821 -> да
 // 23432 -> да
+// Для усложенения: модифицировать программу из 19 задания и сделать так, чтобы проверялись не только цифры, но и строчки.
+// Или любую задачку из 400 задач по C#: https://serg40in.ru/reshaem-400-zadach-na-c/
 
 
-Console.WriteLine("Введите пятизначное число: ");
-int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите пятизначное комбинацию символов: ");
+string stringNumber = Console.ReadLine();
 
-int firstDigit = number / 10000;
-int secondDigit = (number / 1000) % 10;
-int fourthDigit = (number / 10) % 10;
-int fifthDigit = number % 10;
-
-if (number > 9999 && number < 100000)
+if (stringNumber.Length == 5)
 {
-    if (firstDigit == fifthDigit && secondDigit == fourthDigit)
+    if (stringNumber[0] == stringNumber[4] && stringNumber[1] == stringNumber[3])
     {
-        Console.WriteLine($"Число {number} является палиндромом");
+        Console.WriteLine($"Комбинавция символов {stringNumber} является палиндромом");
     }
     else
     {
-        Console.WriteLine($"Число {number} не является палиндромом");
+        Console.WriteLine($"Комбинавция символов {stringNumber} не является палиндромом");
     }
 }
 else
 {
-    Console.WriteLine("Число не пятизначное");
+    Console.WriteLine($"Комбинавция символов {stringNumber} не состоит из пяти символов");
 }
